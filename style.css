@@ -1,0 +1,334 @@
+ :root {
+     --sun-color: radial-gradient(circle, #fff700 0%, #ff9100 70%, #ff5e00 100%);
+     --earth-color: radial-gradient(circle at 30% 30%, #2ecc71 0%, #3498db 60%, #2980b9 100%);
+     --panel-bg: rgba(10, 15, 28, 0.95);
+ }
+
+ body,
+ html {
+     margin: 0;
+     padding: 0;
+     width: 100%;
+     height: 100%;
+     overflow: hidden;
+     background: radial-gradient(circle at center, #1b2735 0%, #050508 100%);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-family: 'Segoe UI', Arial, sans-serif;
+     color: white;
+ }
+
+ /* Stars */
+ .star {
+     position: absolute;
+     background: white;
+     border-radius: 50%;
+     animation: blink var(--duration) infinite ease-in-out;
+     pointer-events: none;
+ }
+
+ @keyframes blink {
+
+     0%,
+     100% {
+         opacity: 0.2;
+         transform: scale(0.8);
+     }
+
+     50% {
+         opacity: 0.8;
+         transform: scale(1.1);
+     }
+ }
+
+ /* Center Wrapper */
+ .system-container {
+     position: relative;
+     width: 100%;
+     height: 100%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     transform: scale(0.8);
+ }
+
+ /* Sun */
+ .sun {
+     position: absolute;
+     width: 80px;
+     height: 80px;
+     background: var(--sun-color);
+     border-radius: 50%;
+     box-shadow: 0 0 50px rgba(255, 165, 0, 0.7);
+     z-index: 100;
+     cursor: pointer;
+     transition: transform 0.3s;
+ }
+
+ .sun:hover {
+     transform: scale(1.1);
+ }
+
+ /* Orbit Logic */
+ .orbit {
+     position: absolute;
+     border: 1px solid rgba(255, 255, 255, 0.08);
+     border-radius: 50%;
+     animation: rotate var(--speed) linear infinite;
+     pointer-events: none;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .planet-container {
+     position: absolute;
+     top: 50%;
+     left: 100%;
+     transform: translate(-50%, -50%);
+     pointer-events: auto;
+ }
+
+ .planet {
+     border-radius: 50%;
+     cursor: pointer;
+     transition: transform 0.2s;
+     box-shadow: inset -4px -4px 8px rgba(0, 0, 0, 0.4);
+ }
+
+ .planet:hover {
+     transform: scale(1.4);
+     z-index: 200;
+ }
+
+ @keyframes rotate {
+     from {
+         transform: rotate(0deg);
+     }
+
+     to {
+         transform: rotate(360deg);
+     }
+ }
+
+ /* Planets Config - Speeds and Sizes */
+ .mercury-orbit {
+     --speed: 15s;
+     width: 140px;
+     height: 140px;
+ }
+
+ .mercury {
+     width: 10px;
+     height: 10px;
+     background: #bebebe;
+ }
+
+ .venus-orbit {
+     --speed: 25s;
+     width: 200px;
+     height: 200px;
+ }
+
+ .venus {
+     width: 16px;
+     height: 16px;
+     background: #e3bb76;
+ }
+
+ .earth-orbit {
+     --speed: 40s;
+     width: 280px;
+     height: 280px;
+ }
+
+ .earth {
+     width: 22px;
+     height: 22px;
+     background: var(--earth-color);
+ }
+
+ .moon-orbit {
+     position: absolute;
+     width: 44px;
+     height: 44px;
+     animation: rotate 8s linear infinite;
+     pointer-events: none;
+ }
+
+ .moon {
+     width: 6px;
+     height: 6px;
+     background: #eee;
+     border-radius: 50%;
+     position: absolute;
+     left: 100%;
+     top: 50%;
+     transform: translate(-50%, -50%);
+     cursor: pointer;
+     pointer-events: auto;
+ }
+
+ .mars-orbit {
+     --speed: 60s;
+     width: 360px;
+     height: 360px;
+ }
+
+ .mars {
+     width: 16px;
+     height: 16px;
+     background: #ff5722;
+ }
+
+ .jupiter-orbit {
+     --speed: 100s;
+     width: 480px;
+     height: 480px;
+ }
+
+ .jupiter {
+     width: 42px;
+     height: 42px;
+     background: #d39c7e;
+ }
+
+ .saturn-orbit {
+     --speed: 150s;
+     width: 620px;
+     height: 620px;
+ }
+
+ .saturn {
+     width: 36px;
+     height: 36px;
+     background: #f4d03f;
+     position: relative;
+ }
+
+ .saturn-rings {
+     position: absolute;
+     width: 65px;
+     height: 22px;
+     border: 3px solid rgba(244, 208, 63, 0.4);
+     border-radius: 50%;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%) rotate(25deg);
+     pointer-events: none;
+ }
+
+ .uranus-orbit {
+     --speed: 220s;
+     width: 750px;
+     height: 750px;
+ }
+
+ .uranus {
+     width: 28px;
+     height: 28px;
+     background: #b2d8d8;
+     position: relative;
+ }
+
+ .uranus-rings {
+     position: absolute;
+     width: 40px;
+     height: 40px;
+     border: 1px solid rgba(255, 255, 255, 0.3);
+     border-radius: 50%;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%) rotate(90deg);
+     pointer-events: none;
+ }
+
+ .neptune-orbit {
+     --speed: 300s;
+     width: 880px;
+     height: 880px;
+ }
+
+ .neptune {
+     width: 26px;
+     height: 26px;
+     background: #3f5efb;
+ }
+
+ /* Info Panel */
+ #info-panel {
+     position: fixed;
+     right: -450px;
+     top: 20px;
+     bottom: 20px;
+     width: 350px;
+     background: var(--panel-bg);
+     border: 1px solid rgba(255, 255, 255, 0.2);
+     border-radius: 15px;
+     padding: 25px;
+     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+     transition: right 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+     z-index: 1001;
+     overflow-y: auto;
+     backdrop-filter: blur(10px);
+ }
+
+ #info-panel.active {
+     right: 20px;
+ }
+
+ #info-panel img {
+     width: 100%;
+     border-radius: 10px;
+     margin-bottom: 15px;
+ }
+
+ #info-panel h2 {
+     color: #ffcc00;
+     margin: 0 0 10px 0;
+     font-size: 24px;
+     border-bottom: 1px solid rgba(255, 204, 0, 0.3);
+     padding-bottom: 5px;
+ }
+
+ #info-panel h3 {
+     color: #5bc0de;
+     font-size: 14px;
+     margin: 15px 0 5px 0;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+ }
+
+ #info-panel p {
+     color: #ddd;
+     font-size: 14px;
+     line-height: 1.6;
+     margin: 0;
+ }
+
+ .close-btn {
+     background: rgba(255, 255, 255, 0.1);
+     border: none;
+     color: white;
+     padding: 5px 12px;
+     border-radius: 5px;
+     cursor: pointer;
+     float: right;
+     transition: background 0.2s;
+ }
+
+ .close-btn:hover {
+     background: #ff4444;
+ }
+
+ .instruction {
+     position: absolute;
+     bottom: 20px;
+     left: 20px;
+     color: rgba(255, 255, 255, 0.6);
+     background: rgba(0, 0, 0, 0.4);
+     padding: 8px 15px;
+     border-radius: 20px;
+     font-size: 13px;
+ }

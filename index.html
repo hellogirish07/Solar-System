@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta description="Explore the Solar System with interactive planets and moons. Click on any object for detailed information.">
+  <title>Complete Solar System</title>
+  <link rel="stylesheet" href="style.css" class="css">
+</head>
+
+<body>
+
+<div class="instruction">Explore the Solar System. Click any object for detailed information. 🚀</div>
+  <!-- Stars -->
+  <div id="star-container"></div>
+
+  <div class="system-container">
+    <!-- Sun -->
+    <div class="sun" onclick="showInfo('sun')"></div>
+
+    <!-- Mercury -->
+    <div class="orbit mercury-orbit">
+      <div class="planet-container">
+        <div class="planet mercury" onclick="showInfo('mercury')"></div>
+      </div>
+    </div>
+
+    <!-- Venus -->
+    <div class="orbit venus-orbit">
+      <div class="planet-container">
+        <div class="planet venus" onclick="showInfo('venus')"></div>
+      </div>
+    </div>
+
+    <!-- Earth + Moon -->
+    <div class="orbit earth-orbit">
+      <div class="planet-container">
+        <div class="planet earth" onclick="showInfo('earth')">
+          <!-- Moon -->
+          <div class="moon-orbit">
+            <div class="moon" onclick="event.stopPropagation(); showInfo('moon')"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mars -->
+    <div class="orbit mars-orbit">
+      <div class="planet-container">
+        <div class="planet mars" onclick="showInfo('mars')"></div>
+      </div>
+    </div>
+
+    <!-- Jupiter -->
+    <div class="orbit jupiter-orbit">
+      <div class="planet-container">
+        <div class="planet jupiter" onclick="showInfo('jupiter')"></div>
+      </div>
+    </div>
+
+    <!-- Saturn -->
+    <div class="orbit saturn-orbit">
+      <div class="planet-container">
+        <div class="planet saturn" onclick="showInfo('saturn')">
+          <div class="saturn-rings"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Uranus -->
+    <div class="orbit uranus-orbit">
+      <div class="planet-container">
+        <div class="planet uranus" onclick="showInfo('uranus')">
+          <div class="uranus-rings"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Neptune -->
+    <div class="orbit neptune-orbit">
+      <div class="planet-container">
+        <div class="planet neptune" onclick="showInfo('neptune')"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Info Panel -->
+  <div id="info-panel">
+    <button class="close-btn" onclick="closeInfo()">X</button>
+    <img id="planet-img" src="" alt="Planet Image">
+    <h2 id="planet-name">Planet Name</h2>
+    <h3>Description</h3>
+    <p id="planet-desc"></p>
+    <h3>Key Fact</h3>
+    <p id="planet-fact"></p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
