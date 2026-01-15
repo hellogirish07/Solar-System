@@ -53,6 +53,11 @@
      transform: scale(0.8);
  }
 
+@media (max-width: 600px) {
+    .system-container {
+        transform: scale(0.5);
+    }
+}
  /* Sun */
  .sun {
      position: absolute;
@@ -259,10 +264,10 @@
  /* Info Panel */
  #info-panel {
      position: fixed;
-     right: -450px;
+     right: -350px;
      top: 20px;
      bottom: 20px;
-     width: 350px;
+     width: 300px;
      background: var(--panel-bg);
      border: 1px solid rgba(255, 255, 255, 0.2);
      border-radius: 15px;
@@ -275,7 +280,7 @@
  }
 
  #info-panel.active {
-     right: 20px;
+     right: 15px;
  }
 
  #info-panel img {
@@ -332,3 +337,47 @@
      border-radius: 20px;
      font-size: 13px;
  }
+
+/* Info-panel responsive fixes */
+@media (max-width: 900px) {
+    #info-panel {
+        /* keep it on the right but limit width so it never overflows */
+        right: 12px;
+        left: auto;
+        top: 12px;
+        bottom: 12px;
+        width: min(340px, 40%);
+        padding: 16px;
+        box-sizing: border-box;
+        transition: right 0.35s, bottom 0.35s;
+    }
+    #info-panel.active { right: 12px; }
+}
+
+@media (max-width: 480px) {
+    /* convert to bottom sheet on very small screens */
+    html, body { overflow: auto; }
+    #info-panel {
+        position: fixed;
+        left: 5%;
+        right: 5%;
+        width: auto;
+        top: auto;
+        bottom: -60vh; /* hidden by default below viewport */
+        height: 42vh;
+        border-radius: 12px 12px 0 0;
+        padding: 12px;
+        transition: bottom 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        box-sizing: border-box;
+        right: 5%;
+        z-index: 2000;
+    }
+    /* when active, slide up into view */
+    #info-panel.active { bottom: 8px; height: 95vh; }
+
+    #info-panel img { max-height: 36%; object-fit: cover; margin-bottom: 10px; }
+    #info-panel h2 { font-size: 18px; }
+    #info-panel p { font-size: 13px; }
+    .close-btn { position: absolute; top: 8px; right: 8px; }
+    .instruction { bottom: 8px; left: 8px; font-size: 12px; padding: 6px 10px; }
+}
