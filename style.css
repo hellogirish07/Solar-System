@@ -373,7 +373,7 @@
         z-index: 2000;
     }
     /* when active, slide up into view */
-    #info-panel.active { bottom: 8px; height: 95vh; }
+    #info-panel.active { bottom: 8px; height: 90vh; }
 
     #info-panel img { max-height: 36%; object-fit: cover; margin-bottom: 10px; }
     #info-panel h2 { font-size: 18px; }
@@ -381,3 +381,4 @@
     .close-btn { position: absolute; top: 8px; right: 8px; }
     .instruction { bottom: 8px; left: 8px; font-size: 12px; padding: 6px 10px; }
 }
+
