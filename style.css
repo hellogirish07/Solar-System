@@ -351,7 +351,10 @@
         box-sizing: border-box;
         transition: right 0.35s, bottom 0.35s;
     }
-    #info-panel.active { right: 12px; }
+ 
+    #info-panel.active { 
+     right: 12px; 
+    }
 }
 
 @media (max-width: 480px) {
@@ -375,6 +378,7 @@
         right: 5%;
         z-index: 2000;
     }
+ 
     /* when active, slide up into view */
     #info-panel.active { 
      bottom: 8px; 
@@ -408,5 +412,6 @@
      padding: 6px 10px; 
     }
 }
+
 
 
