@@ -356,7 +356,10 @@
 
 @media (max-width: 480px) {
     /* convert to bottom sheet on very small screens */
-    html, body { overflow: auto; }
+    html, body { 
+     overflow: auto; 
+    }
+ 
     #info-panel {
         position: fixed;
         left: 5%;
@@ -373,12 +376,37 @@
         z-index: 2000;
     }
     /* when active, slide up into view */
-    #info-panel.active { bottom: 8px; height: 90vh; }
+    #info-panel.active { 
+     bottom: 8px; 
+     height: 90vh; 
+    }
 
-    #info-panel img { max-height: 36%; object-fit: cover; margin-bottom: 10px; }
-    #info-panel h2 { font-size: 18px; }
-    #info-panel p { font-size: 13px; }
-    .close-btn { position: absolute; top: 8px; right: 8px; }
-    .instruction { bottom: 8px; left: 8px; font-size: 12px; padding: 6px 10px; }
+    #info-panel img { 
+     max-height: 36%; 
+     object-fit: cover;
+     margin-bottom: 10px; 
+    }
+ 
+    #info-panel h2 {
+     font-size: 18px; 
+    }
+ 
+    #info-panel p { 
+     font-size: 13px; 
+    }
+ 
+    .close-btn { 
+     position: absolute; 
+     top: 8px; 
+     right: 8px; 
+    }
+ 
+    .instruction { 
+     bottom: 8px; 
+     left: 8px; 
+     font-size: 12px; 
+     padding: 6px 10px; 
+    }
 }
+
 
